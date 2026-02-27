@@ -1,15 +1,16 @@
-//Import Express
+//Import Express-
 import express from "express";
 
 //Initialize Express app-
 const app = express();
 
+//Middleware to parse JSON bodies-
 app.use(express.json());
 
-//Set the port
+//Set the port-
 const PORT = 3000;
 
-//Set up a  basic route
+//Set up a  basic route-
 app.get("/", (req, res) => {
   res.send("Welcome to our API!. Hello World!");
 });
@@ -58,10 +59,8 @@ app.post("/savecontact", (req, res) => {
   });
 });
 
-//Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+
+
 
 // 2Practice Exercise: Building Your Own API
 
@@ -74,20 +73,22 @@ app.listen(PORT, () => {
 // For the POST route, send JSON data with a name and age, and check the response.
 //
 
-// By completing this exercise, you will learn how to:
-// Set up an Express server.
-// Create API routes.
-// Handle both GET and POST requests.
-// Test your API using Insomnia.
 
 //
 app.get("/greet", (req, res) => {
   res.send("Hello, developer!");
 });
 
+
 app.post("/submit", (req, res) => {
   const { name, age } = req.body;
   res.json({
     message: `Hello, ${name}! You are ${age} years old. You live in ${req.body.address} with your family.`,
   });
+});
+
+
+//Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
